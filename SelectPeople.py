@@ -21,9 +21,11 @@ def create_relations():
 
 		# Create a new order if someone's person is repeated
 		try:
-			for key in Relations:
-				if Relations[key] == relations_past[key]:
-					return create_relations()
+			# Don't check if there are only two people in the relations
+			if len((Relations.keys())) != 2:
+				for key in Relations:
+					if Relations[key] == relations_past[key]:
+						return create_relations()
 		except KeyError:
 			pass
 
