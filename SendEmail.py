@@ -1,35 +1,34 @@
-import smtplib
-import datetime
+from smtplib import SMTP_SSL
+from datetime import datetime
+from textwrap import dedent
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
 
 # Credentials of the email account
-gmail_user = ""  
-gmail_password = ""
+gmail_user = "regalosfamiliapalafox@gmail.com"
+gmail_password = "Gascons1"
 
 # Log in the gmail server
-server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+server = SMTP_SSL('smtp.gmail.com', 465)
 server.ehlo()
 server.login(gmail_user, gmail_password)
 
 # Fetch current date
-current = datetime.datetime.now()
+current = datetime.now()
 
 
 def send_email(receiver, gifted):
-	subject = "Regalo invisible para el %s" % (current.year + 1)
-	
-	# The body can be changed to anything, just be sure to include the variable gifted
-	body = """Hoooola,
-Espero que estés pasando unas geniales navidades. Como sé que cada año se nos olvida quién nos toca el año que viene te mando un email para que no se te olvide :)
-La persona que te ha tocado es: %s
-Que vaya todo muy bien y que tengas próspero año nuevo :)
+    email = MIMEMultipart()
+    email['From'] = 'Regalos Navidad'
+    email['To'] = receiver
+    email['Subject'] = f"Regalo invisible para el {current.year + 1}"
 
-Besos""" % (gifted)
+    # The body_email.txt can be changed to anything, just be sure to include the variable {0} in the body
+    body = open("body_email.txt", "r").read().format(gifted)
 
-	email_text = """  
-To: %s  
-Subject: %s
+    email.attach(MIMEText(body, 'plain'))
 
-%s
-""" % (receiver, subject, body)
+    email_text = email.as_string()
 
-	server.sendmail(gmail_user, receiver, email_text.encode('utf-8'))
+    server.sendmail(gmail_user, receiver, email_text.encode('utf-8'))

@@ -12,3 +12,6 @@ Gifts.pck
 
 # Ignore all folders named __pycache__
 __pycache__/
+
+# Ignore all files without name
+.*
