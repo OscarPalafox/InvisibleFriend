@@ -15,3 +15,7 @@ __pycache__/
 
 # Ignore all files without name
 .*
+
+# Ignore credentials
+user.txt
+credentials.txt
