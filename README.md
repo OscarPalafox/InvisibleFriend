@@ -1,10 +1,11 @@
 # InvisibleFriend
 
 GUI to send send an email (only tested with GMAIL) to the participants of an invisible friend group so they don't forget who 
-they got. It works with smaller groups where in the smaller groups you don't want to have people gifting each other.
+they got. It works with groups of smaller people where people in the smaller groups don't want to gift each other.
 This GUI makes people get someone different from the previous year.
 
-To make it work, modify the SendEmail.py file to fill the gmail_user and the gmail_password.
-Then in the SelecPeople.py file, change line 39 to line 53. Replace the members in each Family to put the ones you want. The 
-different families allow to have different groups; basically two members in the same family will never gift each other. Fill
-Big_Family with the different families and run "GUI buttons.py" to see the GUI.
+### Using it
+1. Modify the `people.txt` file to add the groups of people (one group per line and separate each member with ", ")
+2. Modify the `user.txt` file with your gmail account (the one that will be sending the emails)
+3. Modify the `credentials.txt` file with the password of the gmail account that will be sending the emails
+4. Run the `gui_buttons.py` file with [Python 3](https://www.python.org/downloads/), the GUI will appear in a new window

@@ -1,6 +1,6 @@
-Hoooola,
+Hoooola{0},
 Espero que estés pasando unas geniales navidades. Como sé que cada año se nos olvida quién nos toca el año que viene te mando un email para que no se te olvide :)
-La persona que te ha tocado es: {0}
+La persona que te ha tocado es: {1}
 Que vaya todo muy bien y que tengas próspero año nuevo :)
 
 Besos
